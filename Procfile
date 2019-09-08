@@ -1,1 +1,0 @@
-web: gunicorn oauth.wsgi --log-file -

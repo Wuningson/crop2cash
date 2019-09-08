@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="jumbotron">
   <p>Welcome</p>
@@ -6,9 +7,14 @@
     <p>Logged in as {{ user.username }}</p>
     <p>First name: {{user.first_name}}</p>
     <p>Email: {{user.email}}</p>
-
+    <button type="button" onclick="logout()">Logout</button>
   {% else %}
-  <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
+  <a href = "{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" title = "Login with Google"> 
+    <img src = "{% static 'img/google.png' %}" height = "30" width = "30">
+    Login with Google
+</a>
+  
   {% endif %}
+  <!-- <button><div id="image"><img src="{% static 'img/google.png' %}"></div>Sign in with Google</button> -->
 </div>
 {% endblock %}
